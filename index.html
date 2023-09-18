@@ -169,20 +169,8 @@
 
 <script>
   var remark_config = {
-   ;(function () {
-  var host = remark.f070.art // Your remark42 host
-  var components = ['embed'] // Your choice of remark42 components
-
-  ;(function(c) {
-    for (let i = 0; i < c.length; i++) {
-      const d = document
-      const s = d.createElement('script')
-      s.src = remark_config.host + '/web/' + c[i] + '.js'
-      s.defer = true
-      ;(d.head || d.body).appendChild(s)
-    }
-  })(components)
-})
+    host: 'remark.f070.art',
+    site_id: 'remark',
   }
 </script>
 
