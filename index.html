@@ -167,8 +167,10 @@
         </li>
     </ul>
 
-    ;(function () {
-  var host = https://remark.f070.art // Your remark42 host
+<script>
+  var remark_config = {
+   ;(function () {
+  var host = remark.f070.art // Your remark42 host
   var components = ['embed'] // Your choice of remark42 components
 
   ;(function(c) {
@@ -181,41 +183,13 @@
     }
   })(components)
 })
-
- initRemark42() {
-    if (window.REMARK42) {
-      if (this.remark42Instance) {
-        this.remark42Instance.destroy()
-      }
-
-      this.remark42Instance = window.REMARK42.createInstance({
-        node: this.$refs.remark42 as HTMLElement,
-        ...remark42_config  // See <https://github.com/patarapolw/remark42#setup-on-your-website>
-      })
-    }
   }
+</script>
 
-  mounted() {
-    if (window.REMARK42) {
-      this.initRemark42()
-    } else {
-      window.addEventListener('REMARK42::ready', () => {
-        this.initRemark42()
-      })
-    }
-  }
-
-     @Watch('$route.path')
-  onRouteChange() {
-    this.initRemark42()
-  }
-     beforeRouteLeave() {
-    if (this.remark42Instance) {
-      this.remark42Instance.destroy()
-    }
-  }
-
+<script>!function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);</script>
+    
 <div id="remark42"></div>
+    
     <footer>
         © Rashid Galiev. All rights reserved.
     </footer>
